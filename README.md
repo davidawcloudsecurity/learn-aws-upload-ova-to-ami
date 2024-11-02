@@ -33,7 +33,6 @@ containers.json
 ```
 ```bash
 aws ec2 import-image --description "My server VM" --disk-containers "file://C:\import\containers.json"
-aws ec2 import-image --description "My server disks" --disk-containers "file://C:\import\containers.json" # if multiples
 ```
 ### Resource
 https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
