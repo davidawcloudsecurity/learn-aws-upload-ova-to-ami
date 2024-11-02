@@ -3,8 +3,27 @@ how to upload ova to aws as ami
 
 ### Prerequisite
 1. Ensure user / role has access to get/put for s3 bucket
-2. Ensure user
-
+2. Ensure user / role has policy VMImportExportRoleForAWSConnector
+3. Maybe required
+```bash
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "vmie.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "sts:ExternalId": "vmimport"
+                }
+            }
+        }
+    ]
+}
+```
 ```bash
 wget https://download.vulnhub.com/mrrobot/mrRobot.ova
 aws s3 cp mrRobot.ova s3://my-guardduty-threat-list-bucket-a8467242
