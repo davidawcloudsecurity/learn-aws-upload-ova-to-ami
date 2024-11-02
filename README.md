@@ -72,7 +72,7 @@ while [[ -z "$(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASK
 echo "AMI ID: $AMI_ID"
 REGION=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')
 aws ec2 copy-image --source-image-id $AMI_ID --source-region us-east-1 --region $REGION --name mrRobot-${AMI_ID#ami-} --description "Based on the show, Mr. Robot."
-aws ec2 create-tags --resources mrRobot-${AMI_ID#ami-} --tags Key=Name,Value="mrRobot"
+aws ec2 create-tags --resources $COPIED_AMI_ID --tags Key=Name,Value="mrRobot"
 aws ec2 deregister-image --image-id $AMI_ID
 ```
 ### Resource
