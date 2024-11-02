@@ -36,11 +36,11 @@ containers.json
 Import an image with a single disk
 ```bash
 aws ec2 import-image --description "My server VM" --disk-containers "file://C:\import\containers.json"
-aws ec2 import-image --description "My server VM" --disk-containers "file:///tmp/containers.json"
+IMPORTTASKID=$(aws ec2 import-image --description "My server VM" --disk-containers "file:///tmp/containers.json" --query ImportTaskId --output text)
 ```
 Monitor the progress
 ```bash
-aws ec2 describe-import-image-tasks --import-task-ids "import-ami-1234567890abcdef0>"
+aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID
 ```
 ### Resource
 https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
