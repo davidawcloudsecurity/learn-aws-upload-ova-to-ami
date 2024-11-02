@@ -1,6 +1,10 @@
 # learn-aws-upload-ova-to-ami
 how to upload ova to aws as ami
 
+### Prerequisite
+1. Ensure user / role has access to get/put for s3 bucket
+2. Ensure user
+
 ```bash
 wget https://download.vulnhub.com/mrrobot/mrRobot.ova
 aws s3 cp mrRobot.ova s3://my-guardduty-threat-list-bucket-a8467242
