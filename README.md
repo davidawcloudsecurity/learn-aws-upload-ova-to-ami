@@ -1,8 +1,10 @@
 # learn-aws-upload-ova-to-ami
 how to upload ova to aws as ami
 
-wget 
-
+```bash
+wget https://download.vulnhub.com/mrrobot/mrRobot.ova
+aws s3 cp mrRobot.ova s3://my-guardduty-threat-list-bucket-a8467242
+```
 "S3Key":vms/mrRobot.ova # if organize
 
 "Url": "s3://amzn-s3-demo-import-bucket/vms/mrRobot.ova" # alternate
