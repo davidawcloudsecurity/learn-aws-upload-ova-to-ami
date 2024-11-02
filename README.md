@@ -4,7 +4,7 @@ how to upload ova to aws as ami
 ### Prerequisite
 1. Ensure user / role has access to get/put for s3 bucket
 2. Ensure user / role has policy VMImportExportRoleForAWSConnector
-3. Maybe required
+3. Ensure role as trust policy # optional
 ```bash
 {
     "Version": "2012-10-17",
