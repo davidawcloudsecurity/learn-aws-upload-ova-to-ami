@@ -68,6 +68,9 @@ aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID
 ### Loop Check status
 ```bash
 while [[ "$(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].StatusMessage' --output text)" != "completed" ]]; do echo $(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].StatusMessage' --output text); sleep 10; done; echo "Import completed!"
+AMI_ID=$(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].ImageId' --output text)
+REGION=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')
+aws ec2 copy-image --source-image-id $AMI_ID --source-region us-east-1 --region $REGION --name mrRobot --description "Based on the show, Mr. Robot."
 ```
 ### Resource
 https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
