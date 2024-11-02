@@ -76,4 +76,6 @@ aws ec2 create-tags --resources $COPIED_AMI_ID --tags Key=Name,Value="mrRobot"
 aws ec2 deregister-image --image-id $AMI_ID
 ```
 ### Resource
+OVA - https://www.vulnhub.com/entry/mr-robot-1,151/#description
+
 https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
