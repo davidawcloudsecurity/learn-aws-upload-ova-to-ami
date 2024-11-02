@@ -61,13 +61,13 @@ containers.json
 aws ec2 import-image --description "My server VM" --disk-containers "file://C:\import\containers.json"
 IMPORTTASKID=$(aws ec2 import-image --description "My server VM" --disk-containers "file:///tmp/containers.json" --query ImportTaskId --output text)
 ```
-### Check status
-```bash
-while [[ "$(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].StatusMessage' --output text)" != "completed" ]]; do echo "Import in progress..."; sleep 10; done; echo "Import completed!"
-```
-Monitor the progress
+### Monitor the progress
 ```bash
 aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID
+```
+### Loop Check status
+```bash
+while [[ "$(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].StatusMessage' --output text)" != "completed" ]]; do echo $(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].StatusMessage' --output text); sleep 10; done; echo "Import completed!"
 ```
 ### Resource
 https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
