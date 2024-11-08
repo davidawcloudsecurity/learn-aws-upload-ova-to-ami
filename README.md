@@ -59,7 +59,7 @@ containers.json
 ### Import an image with a single disk
 ```bash
 aws ec2 import-image --description "My server VM" --disk-containers "file://C:\import\containers.json"
-IMPORTTASKID=$(aws ec2 import-image --description "My server VM" --disk-containers "file://tmp/containers.json" --query ImportTaskId --output text)
+IMPORTTASKID=$(aws ec2 import-image --description "My server VM" --disk-containers "file:///tmp/containers.json" --query ImportTaskId --output text)
 ```
 ### Monitor the progress
 ```bash
