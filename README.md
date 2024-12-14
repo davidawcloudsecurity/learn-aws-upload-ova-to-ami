@@ -84,7 +84,8 @@ sudo apt-get install qemu-utils
 or
 sudo dnf install qemu
 FILE=
-qemu-img convert -f raw -O vpc $FILE ${FILE}.vhd
+qemu-img convert -f iso -O vhd $FILE ${FILE}.vhd
+VBoxManage convertfromraw $FILE ${FILE}.vhd --format VHD --variant Fixed
 ```
 ### Loop Check status
 ```bash
