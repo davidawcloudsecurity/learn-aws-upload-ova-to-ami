@@ -81,6 +81,7 @@ aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID
 how to upload vhd to aws as ami
 ```bash
 sudo apt-get install qemu-utils
+or
 sudo dnf install qemu
 FILE=
 qemu-img convert -f raw -O vpc $FILE ${FILE}.vhd
