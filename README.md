@@ -78,4 +78,6 @@ aws ec2 deregister-image --image-id $AMI_ID
 ### Resource
 OVA - https://www.vulnhub.com/entry/mr-robot-1,151/#description
 
+https://docs.aws.amazon.com/vm-import/latest/userguide/import-vm-image.html
+
 https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
