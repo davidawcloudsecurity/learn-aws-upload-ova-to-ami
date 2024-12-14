@@ -56,6 +56,18 @@ containers.json
   }
 ]
 ```
+```bash
+[
+  {
+    "Description": "First disk",
+    "Format": "vmdk",
+    "UserBucket": {
+        "S3Bucket": "amzn-s3-demo-import-bucket",
+        "S3Key": "disks/my-server-vm-disk1.vmdk"
+    }
+  }
+]
+```
 ### Import an image with a single disk
 ```bash
 aws ec2 import-image --description "My server VM" --disk-containers "file://C:\import\containers.json"
