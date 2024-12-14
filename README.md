@@ -77,6 +77,14 @@ IMPORTTASKID=$(aws ec2 import-image --description "My server VM" --disk-containe
 ```bash
 aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID
 ```
+# learn-aws-upload-vhd-to-ami
+how to upload vhd to aws as ami
+```bash
+sudo apt-get install qemu-utils
+sudo dnf install qemu
+FILE=
+qemu-img convert -f raw -O vpc $FILE ${FILE}.vhd
+```
 ### Loop Check status
 ```bash
 while [[ "$(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].StatusMessage' --output text)" != "completed" ]]; do echo $(aws ec2 describe-import-image-tasks --import-task-ids $IMPORTTASKID --query 'ImportImageTasks[*].StatusMessage' --output text); sleep 10; done; echo "Import completed!"
