@@ -86,6 +86,7 @@ sudo dnf install qemu
 FILE=
 qemu-img convert -f iso -O vhd $FILE ${FILE}.vhd
 VBoxManage convertfromraw $FILE ${FILE}.vhd --format VHD --variant Fixed
+qemu-img convert -f raw -O raw input.iso output.raw
 ```
 ### Loop Check status
 ```bash
